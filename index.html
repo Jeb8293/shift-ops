@@ -68,6 +68,21 @@ textarea{min-height:105px;resize:vertical}
 </header>
 
 <main>
+<form name="shift-submissions" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field">
+  <input type="text" name="timestamp">
+  <input type="text" name="shift">
+  <input type="text" name="name">
+  <input type="text" name="date">
+  <input type="text" name="arrivals">
+  <input type="text" name="departures">
+  <input type="text" name="occupancy">
+  <input type="text" name="score">
+  <input type="text" name="completed">
+  <textarea name="completedItems"></textarea>
+  <textarea name="unresolved"></textarea>
+  <textarea name="notes"></textarea>
+</form>
 <section id="dashboard" class="page active">
 <h1>Front Office Operations Hub</h1>
 <p class="subtitle">Daily shift checklists, handoff documentation, and front office resources for AM, PM, and Night Audit.</p>
@@ -307,11 +322,53 @@ function resetDefaultChecklist(){if(confirm("Reset this checklist to the default
 function updateProgress(){const tasks=flatTasks();let done=tasks.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;let total=tasks.length;document.getElementById("progressBar").style.width= total ? (done/total*100)+"%" : "0%";document.getElementById("progressText").textContent=`${done}/${total} items completed`;document.getElementById("completionLabel").value=`${done}/${total}`}
 function renderDashboard(){["am","pm","night"].forEach(k=>{let all=flatTasks(k);let done=all.filter(t=>localStorage.getItem("shiftops_check_"+k+"_"+t.si+"_"+t.ii)==="true").length;document.getElementById(k+"Dash").textContent=`${done}/${all.length} completed`});renderRecent();renderSubmissions()}
 function submitChecklist(){
- const name=document.getElementById("agentName").value.trim(); if(!name){alert("Enter agent name before submitting.");return}
- const all=flatTasks();let done=all.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;
- const checked=all.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").map(t=>t.text).join("; ");
- const submission={timestamp:new Date().toLocaleString(),shift:shifts[currentShift].label,name,date:document.getElementById("shiftDate").value,arrivals:document.getElementById("arrivals").value,departures:document.getElementById("departures").value,occupancy:document.getElementById("occupancy").value,score:document.getElementById("score").value,completed:`${done}/${all.length}`,completedItems:checked,unresolved:document.getElementById("unresolved").value,notes:document.getElementById("notes").value};
- const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");list.push(submission);localStorage.setItem("shiftops_submissions",JSON.stringify(list));alert("Checklist submitted.");renderAll();
+ const name=document.getElementById("agentName").value.trim(); 
+ if(!name){
+   alert("Enter agent name before submitting.");
+   return;
+ }
+
+ const all=flatTasks();
+ let done=all.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;
+
+ const checked=all
+   .filter(t=>localStorage.getItem(key(t.si,t.ii))==="true")
+   .map(t=>t.text)
+   .join("; ");
+
+ const submission={
+   "form-name":"shift-submissions",
+   timestamp:new Date().toLocaleString(),
+   shift:shifts[currentShift].label,
+   name:name,
+   date:document.getElementById("shiftDate").value,
+   arrivals:document.getElementById("arrivals").value,
+   departures:document.getElementById("departures").value,
+   occupancy:document.getElementById("occupancy").value,
+   score:document.getElementById("score").value,
+   completed:`${done}/${all.length}`,
+   completedItems:checked,
+   unresolved:document.getElementById("unresolved").value,
+   notes:document.getElementById("notes").value
+ };
+
+ const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");
+ list.push(submission);
+ localStorage.setItem("shiftops_submissions",JSON.stringify(list));
+
+ fetch("/", {
+   method: "POST",
+   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+   body: new URLSearchParams(submission).toString()
+ })
+ .then(() => {
+   alert("Checklist submitted and emailed.");
+   renderAll();
+ })
+ .catch(() => {
+   alert("Checklist saved locally, but the email submission failed.");
+   renderAll();
+ });
 }
 function clearCurrent(){if(confirm("Clear current checklist checkmarks?")){shifts[currentShift].sections.forEach((sec,si)=>sec.items.forEach((_,ii)=>localStorage.removeItem(key(si,ii))));renderTasks();renderDashboard()}}
 function renderRecent(){const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");let box=document.getElementById("recentSubmissions");if(!list.length){box.textContent="No submissions yet.";return}box.innerHTML=list.slice(-4).reverse().map(s=>`<div class="submission"><strong>${s.shift}</strong> submitted by <strong>${esc(s.name)}</strong><br><small>${s.timestamp} • ${s.completed}</small></div>`).join("")}
