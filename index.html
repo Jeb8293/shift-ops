@@ -320,37 +320,70 @@ function addItem(si){const input=document.getElementById("add_"+si);if(!input.va
 function deleteItem(si,ii){if(confirm("Delete this checklist item?")){shifts[currentShift].sections[si].items.splice(ii,1);saveShiftData();renderTasks()}}
 function resetDefaultChecklist(){if(confirm("Reset this checklist to the default version from the photos?")){shifts[currentShift]=JSON.parse(JSON.stringify(DEFAULT_SHIFTS[currentShift]));saveShiftData();renderTasks()}}
 function updateProgress(){const tasks=flatTasks();let done=tasks.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;let total=tasks.length;document.getElementById("progressBar").style.width= total ? (done/total*100)+"%" : "0%";document.getElementById("progressText").textContent=`${done}/${total} items completed`;document.getElementById("completionLabel").value=`${done}/${total}`}
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 function renderDashboard(){["am","pm","night"].forEach(k=>{let all=flatTasks(k);let done=all.filter(t=>localStorage.getItem("shiftops_check_"+k+"_"+t.si+"_"+t.ii)==="true").length;document.getElementById(k+"Dash").textContent=`${done}/${all.length} completed`});renderRecent();renderSubmissions()}
+<script>
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 function submitChecklist(){
- const name=document.getElementById("agentName").value.trim(); 
- if(!name){
-   alert("Enter agent name before submitting.");
-   return;
- }
+  const name = document.getElementById("agentName").value.trim();
 
- const all=flatTasks();
- let done=all.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;
+  if(!name){
+    alert("Enter agent name before submitting.");
+    return;
+  }
 
- const checked=all
-   .filter(t=>localStorage.getItem(key(t.si,t.ii))==="true")
-   .map(t=>t.text)
-   .join("; ");
+  const all = flatTasks();
+  const done = all.filter(t => localStorage.getItem(key(t.si,t.ii)) === "true").length;
 
- const submission={
-   "form-name":"shift-submissions",
-   timestamp:new Date().toLocaleString(),
-   shift:shifts[currentShift].label,
-   name:name,
-   date:document.getElementById("shiftDate").value,
-   arrivals:document.getElementById("arrivals").value,
-   departures:document.getElementById("departures").value,
-   occupancy:document.getElementById("occupancy").value,
-   score:document.getElementById("score").value,
-   completed:`${done}/${all.length}`,
-   completedItems:checked,
-   unresolved:document.getElementById("unresolved").value,
-   notes:document.getElementById("notes").value
- };
+  const checked = all
+    .filter(t => localStorage.getItem(key(t.si,t.ii)) === "true")
+    .map(t => t.text)
+    .join("; ");
+
+  const submission = {
+    "form-name": "shift-submissions",
+    timestamp: new Date().toLocaleString(),
+    shift: shifts[currentShift].label,
+    name: name,
+    date: document.getElementById("shiftDate").value,
+    arrivals: document.getElementById("arrivals").value,
+    departures: document.getElementById("departures").value,
+    occupancy: document.getElementById("occupancy").value,
+    score: document.getElementById("score").value,
+    completed: `${done}/${all.length}`,
+    completedItems: checked,
+    unresolved: document.getElementById("unresolved").value,
+    notes: document.getElementById("notes").value
+  };
+
+  const list = JSON.parse(localStorage.getItem("shiftops_submissions") || "[]");
+  list.push(submission);
+  localStorage.setItem("shiftops_submissions", JSON.stringify(list));
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode(submission)
+  })
+  .then(() => {
+    alert("Checklist submitted successfully.");
+    renderAll();
+  })
+  .catch(() => {
+    alert("Checklist saved locally, but the Netlify submission failed.");
+    renderAll();
+  });
+}
+</script>
 
  const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");
  list.push(submission);
