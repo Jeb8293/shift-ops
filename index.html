@@ -319,14 +319,9 @@ function editItem(si,ii,val){shifts[currentShift].sections[si].items[ii]=val.tri
 function addItem(si){const input=document.getElementById("add_"+si);if(!input.value.trim())return;shifts[currentShift].sections[si].items.push(input.value.trim());saveShiftData();renderTasks()}
 function deleteItem(si,ii){if(confirm("Delete this checklist item?")){shifts[currentShift].sections[si].items.splice(ii,1);saveShiftData();renderTasks()}}
 function resetDefaultChecklist(){if(confirm("Reset this checklist to the default version from the photos?")){shifts[currentShift]=JSON.parse(JSON.stringify(DEFAULT_SHIFTS[currentShift]));saveShiftData();renderTasks()}}
-function updateProgress(){const tasks=flatTasks();let done=tasks.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;let total=tasks.length;document.getElementById("progressBar").style.width= total ? (done/total*100)+"%" : "0%";document.getElementById("progressText").textContent=`${done}/${total} items completed`;document.getElementById("completionLabel").value=`${done}/${total}`}
-function renderDashboard(){["am","pm","night"].forEach(k=>{let all=flatTasks(k);let done=all.filter(t=>localStorage.getItem("shiftops_check_"+k+"_"+t.si+"_"+t.ii)==="true").length;document.getElementById(k+"Dash").textContent=`${done}/${all.length} completed`});renderRecent();renderSubmissions()}
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
-<script>
+function updateProgress(){const tasks=flatTasks();let done=tasks.filter(t=>localStorage.getItem(key(t.si,t.ii))==="true").length;let total=tasks.length;document.getElementById("progressBar").style.width= total ? (done/total*100)+"%" : "0%";document.getElementById("progressText").textContent=`${done}/${total} items completed`;document.getElementById("completionLabel").value=`${done}/${
+  function renderDashboard(){["am","pm","night"].forEach(k=>{let all=flatTasks(k);let done=all.filter(t=>localStorage.getItem("shiftops_check_"+k+"_"+t.si+"_"+t.ii)==="true").length;document.getElementById(k+"Dash").textContent=`${done}/${all.length} completed`});renderRecent();renderSubmissions()}
+
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -383,26 +378,7 @@ function submitChecklist(){
     renderAll();
   });
 }
-</script>
 
- const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");
- list.push(submission);
- localStorage.setItem("shiftops_submissions",JSON.stringify(list));
-
- fetch("/", {
-   method: "POST",
-   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-   body: new URLSearchParams(submission).toString()
- })
- .then(() => {
-   alert("Checklist submitted and emailed.");
-   renderAll();
- })
- .catch(() => {
-   alert("Checklist saved locally, but the email submission failed.");
-   renderAll();
- });
-}
 function clearCurrent(){if(confirm("Clear current checklist checkmarks?")){shifts[currentShift].sections.forEach((sec,si)=>sec.items.forEach((_,ii)=>localStorage.removeItem(key(si,ii))));renderTasks();renderDashboard()}}
 function renderRecent(){const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");let box=document.getElementById("recentSubmissions");if(!list.length){box.textContent="No submissions yet.";return}box.innerHTML=list.slice(-4).reverse().map(s=>`<div class="submission"><strong>${s.shift}</strong> submitted by <strong>${esc(s.name)}</strong><br><small>${s.timestamp} • ${s.completed}</small></div>`).join("")}
 function renderSubmissions(){const list=JSON.parse(localStorage.getItem("shiftops_submissions")||"[]");let box=document.getElementById("submissionsList");if(!list.length){box.innerHTML='<div class="panel">No submissions yet.</div>';return}box.innerHTML=list.slice().reverse().map(s=>`<div class="submission"><strong>${s.shift}</strong> — ${esc(s.name)}<br><small>${s.timestamp} • ${s.completed}</small><p><strong>Unresolved:</strong> ${esc(s.unresolved)||"N/A"}</p><p><strong>Notes:</strong> ${esc(s.notes)||"N/A"}</p></div>`).join("")}
