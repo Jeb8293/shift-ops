@@ -140,21 +140,18 @@ const checklistTitle = document.getElementById("checklistTitle");
 document.getElementById("shiftDate").valueAsDate = new Date();
 
 function renderChecklist() {
-
   const shift = checklistData[currentShift];
 
   shiftLabel.value = shift.label;
   checklistTitle.textContent = `${shift.label} Checklist`;
-
   checklistContainer.innerHTML = "";
 
   shift.sections.forEach((section, sectionIndex) => {
-
     const wrapper = document.createElement("div");
-    wrapper.className = "checklist-section";
+    wrapper.className = "checklist-section open";
 
     wrapper.innerHTML = `
-      <button class="section-toggle">
+      <button class="section-toggle" type="button">
         ${section.title}
       </button>
 
@@ -181,7 +178,7 @@ function renderChecklist() {
     });
   });
 
-  document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+  document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(box => {
     box.addEventListener("change", updateProgress);
   });
 
@@ -189,113 +186,104 @@ function renderChecklist() {
 }
 
 function updateProgress() {
-
-  const boxes = document.querySelectorAll(
-    '#checklistContainer input[type="checkbox"]'
-  );
-
+  const boxes = document.querySelectorAll('#checklistContainer input[type="checkbox"]');
   const completed = [...boxes].filter(box => box.checked).length;
   const total = boxes.length;
-
-  const percent = total
-    ? (completed / total) * 100
-    : 0;
+  const percent = total ? (completed / total) * 100 : 0;
 
   progressFill.style.width = `${percent}%`;
+  progressText.textContent = `${completed}/${total} completed`;
+  completionLabel.value = `${completed}/${total}`;
 
-  progressText.textContent =
-    `${completed}/${total} completed`;
-
-  completionLabel.value =
-    `${completed}/${total}`;
-
-  const progress =
-    JSON.parse(localStorage.getItem("shiftops_progress") || "{}");
+  const progress = JSON.parse(localStorage.getItem("shiftops_progress") || "{}");
 
   progress[currentShift] = {
     done: completed,
     total: total
   };
 
-  localStorage.setItem(
-    "shiftops_progress",
-    JSON.stringify(progress)
-  );
+  localStorage.setItem("shiftops_progress", JSON.stringify(progress));
+}
+
+function getCompletedItems() {
+  const completedItems = [];
+
+  document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(box => {
+    if (box.checked) {
+      const itemText = box.closest(".check-item").querySelector("span").textContent;
+      completedItems.push(itemText);
+    }
+  });
+
+  return completedItems;
 }
 
 document.querySelectorAll(".shift-tab").forEach(tab => {
-
   tab.addEventListener("click", () => {
-
-    document
-      .querySelectorAll(".shift-tab")
-      .forEach(btn => btn.classList.remove("active"));
-
+    document.querySelectorAll(".shift-tab").forEach(btn => btn.classList.remove("active"));
     tab.classList.add("active");
-
     currentShift = tab.dataset.shift;
-
     renderChecklist();
   });
-
 });
 
-document.getElementById("openAllBtn")
-  .addEventListener("click", () => {
+document.getElementById("openAllBtn").addEventListener("click", () => {
+  document.querySelectorAll(".checklist-section").forEach(section => {
+    section.classList.add("open");
+  });
+});
 
-    document
-      .querySelectorAll(".checklist-section")
-      .forEach(section => {
-        section.classList.add("open");
-      });
+document.getElementById("closeAllBtn").addEventListener("click", () => {
+  document.querySelectorAll(".checklist-section").forEach(section => {
+    section.classList.remove("open");
+  });
+});
 
+document.getElementById("clearChecklistBtn").addEventListener("click", () => {
+  document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(box => {
+    box.checked = false;
   });
 
-document.getElementById("closeAllBtn")
-  .addEventListener("click", () => {
+  updateProgress();
+});
 
-    document
-      .querySelectorAll(".checklist-section")
-      .forEach(section => {
-        section.classList.remove("open");
-      });
+document.getElementById("submitChecklistBtn").addEventListener("click", () => {
+  const name = document.getElementById("agentName").value.trim() || "Unknown";
+  const date = document.getElementById("shiftDate").value || "Not entered";
+  const arrivals = document.getElementById("arrivals").value || "Not entered";
+  const departures = document.getElementById("departures").value || "Not entered";
+  const occupancy = document.getElementById("occupancy").value || "Not entered";
+  const score = document.getElementById("score").value || "Not entered";
+  const unresolved = document.getElementById("unresolved").value.trim() || "N/A";
+  const notes = document.getElementById("notes").value.trim() || "N/A";
+  const completedItems = getCompletedItems();
 
-  });
+  const subject = encodeURIComponent(`SHIFT Report | ${shiftLabel.value} | ${name}`);
 
-document.getElementById("clearChecklistBtn")
-  .addEventListener("click", () => {
+  const body = encodeURIComponent(
+`SHIFT REPORT
 
-    document
-      .querySelectorAll('#checklistContainer input[type="checkbox"]')
-      .forEach(box => {
-        box.checked = false;
-      });
+Agent: ${name}
+Date: ${date}
+Shift: ${shiftLabel.value}
 
-    updateProgress();
+Arrivals: ${arrivals}
+Departures: ${departures}
+Occupancy: ${occupancy}
+Check-In Score / HySat: ${score}
+Completion: ${completionLabel.value}
 
-  });
+COMPLETED CHECKLIST ITEMS
+${completedItems.length ? completedItems.map(item => "- " + item).join("\n") : "No checklist items marked complete."}
 
-document.getElementById("submitChecklistBtn")
-  .addEventListener("click", () => {
+UNRESOLVED ISSUES
+${unresolved}
 
-    const submissions =
-      JSON.parse(localStorage.getItem("shiftops_submissions") || "[]");
+SHIFT NOTES
+${notes}`
+  );
 
-    submissions.push({
-      timestamp: new Date().toLocaleString(),
-      shift: shiftLabel.value,
-      name: document.getElementById("agentName").value || "Unknown",
-      completed: completionLabel.value,
-      unresolved: document.getElementById("unresolved").value,
-      notes: document.getElementById("notes").value
-    });
-
-    localStorage.setItem(
-      "shiftops_submissions",
-      JSON.stringify(submissions)
-    );
-
-    alert("Checklist submitted successfully.");
-  });
+  window.location.href = `mailto:Jennifer.Buser1@thebarnett.com?subject=${subject}&body=${body}`;
+});
 
 renderChecklist();
