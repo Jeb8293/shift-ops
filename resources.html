@@ -5,177 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHIFT Ops | Resources</title>
   <link rel="stylesheet" href="css/style.css">
-    <script src="js/auth.js"></script>
+  <script src="js/auth.js"></script>
 </head>
 
 <body>
+  <header class="site-header">
+    <a href="index.html" class="brand" aria-label="SHIFT Ops Home">
+      <div class="brand-mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-<header class="site-header">
-  <a href="index.html" class="brand">
-    <div class="brand-mark">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <div class="brand-text">
+        <span>SHIFT</span>
+        <span>Ops</span>
+      </div>
+    </a>
 
-    <div class="brand-text">
-      <span>SHIFT</span>
-      <span>Ops</span>
-    </div>
-  </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Dashboard</a>
+      <a href="checklists.html">Checklists</a>
+      <a href="resources.html" class="active">Resources</a>
+    </nav>
+  </header>
 
-  <nav class="site-nav">
-    <a href="index.html">Dashboard</a>
-    <a href="checklists.html">Checklists</a>
-    <a href="resources.html" class="active">Resources</a>
-  </nav>
-</header>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Front Office Knowledge Base</p>
+        <h1>Resources<br>& Guides</h1>
 
-<main class="page-shell">
+        <p class="hero-text">
+          This library is designed to support consistent Front Office execution across AM, PM, and Night Audit. Each guide should help the team understand not only what to do, but why the task matters, what to verify before moving forward, and when a concern should be escalated.
+        </p>
 
-  <section class="section-block first-section">
-    <div class="section-heading">
-      <p class="eyebrow">Reference Library</p>
+        <div class="button-row">
+          <a class="btn primary" href="opera-cloud.html">Start with Opera Cloud</a>
+          <a class="btn secondary" href="billing-routing.html">Billing & Routing</a>
+        </div>
+      </div>
 
-      <h1>Resources</h1>
+      <div class="hero-card" aria-hidden="true">
+        <div class="hero-stripe stripe-one"></div>
+        <div class="hero-stripe stripe-two"></div>
+        <div class="hero-block"></div>
+        <p>Guides<br>Standards<br>Support</p>
+      </div>
+    </section>
 
-      <p class="hero-text">
-        Quick access to Front Office guides, billing references,
-        World of Hyatt information, Opera Cloud procedures,
-        Night Audit resources, and operational standards.
-      </p>
-    </div>
-  </section>
-
-  <section class="resources-grid" id="resourcesContainer">
-
-    <article class="resource-card open">
-      <button class="resource-toggle">
-        <span>Opera Cloud</span>
-        <span>−</span>
-      </button>
-
-      <div class="resource-content">
-        <h3>Common Front Office Tasks</h3>
-
-        <ul>
-          <li>Open Folios</li>
-          <li>Due-Out Management</li>
-          <li>Credit Card Authorizations</li>
-          <li>Cashier Reports</li>
-          <li>Room Moves</li>
-          <li>Night Audit Functions</li>
-        </ul>
-
+    <section class="dashboard-grid" aria-label="Resource guide library">
+      <article class="card">
+        <h2>Opera Cloud</h2>
         <p>
-          Add your Opera Cloud guides and screenshots here.
+          PMS reference guide for reservations, billing screens, open folios, due-outs, traces, cashiering, no-shows, and Night Audit workflows. This guide should be used when agents need a clear starting point for completing common Opera Cloud tasks.
+        </p>
+        <a class="text-link" href="opera-cloud.html">Open Opera Cloud Guide</a>
+      </article>
+
+      <article class="card">
+        <h2>Colleague Advantage</h2>
+        <p>
+          Reference guide for pre-arrival planning, the Pre-Arrival Dashboard, guest profiles, stay history, alerts, traces, preferences, B2B reservations, and arrival preparation. This guide supports proactive service before the guest reaches the desk.
+        </p>
+        <a class="text-link" href="colleague-advantage.html">Open Colleague Advantage Guide</a>
+      </article>
+
+      <article class="card">
+        <h2>World of Hyatt</h2>
+        <p>
+          Guide for member recognition, elite tiers, arrival acknowledgment, upgrades, award stays, benefit verification, and service expectations. This section should help agents confidently recognize loyalty without guessing or overpromising.
+        </p>
+        <a class="text-link" href="world-of-hyatt.html">Open World of Hyatt Guide</a>
+      </article>
+
+      <article class="card">
+        <h2>Billing & Routing</h2>
+        <p>
+          Practical guide for OTA reservations, virtual cards, routing instructions, PM accounts, award stay routing, group billing, direct bill, authorizations, declined payments, and common billing mistakes that should be caught before check-in.
+        </p>
+        <a class="text-link" href="billing-routing.html">Open Billing Guide</a>
+      </article>
+
+      <article class="card">
+        <h2>Service Recovery</h2>
+        <p>
+          Front Office guide for guest complaints, emotional acknowledgment, escalation language, recovery documentation, compensation awareness, difficult conversations, and the difference between solving a problem and simply reacting to one.
+        </p>
+        <a class="text-link" href="service-recovery.html">Open Service Recovery Guide</a>
+      </article>
+
+      <article class="card">
+        <h2>Barnett Standards</h2>
+        <p>
+          Property-specific guide for front desk expectations, shift communication, pass-along standards, phone etiquette, documentation, arrival experience, workspace ownership, and professional conduct at the desk.
+        </p>
+        <a class="text-link" href="barnett-standards.html">Open Barnett Standards</a>
+      </article>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Build Order</p>
+        <h2>Resource Guide Roadmap</h2>
+      </div>
+
+      <div class="panel">
+        <p>
+          The resource library should be built in a deliberate order so the most operationally urgent information is completed first. The recommended build sequence is Opera Cloud, Colleague Advantage, Billing & Routing, World of Hyatt, Service Recovery, and Barnett Standards. This order prioritizes the systems and procedures most likely to prevent guest-facing errors during a live shift.
         </p>
       </div>
-    </article>
+    </section>
+  </main>
 
-    <article class="resource-card">
-      <button class="resource-toggle">
-        <span>Colleague Advantage</span>
-        <span>+</span>
-      </button>
-
-      <div class="resource-content">
-        <h3>Daily Uses</h3>
-
-        <ul>
-          <li>Pre-Arrival Dashboard</li>
-          <li>Guest In-House Rate Check</li>
-          <li>B2B Reservations</li>
-          <li>Comp A Worksheet</li>
-          <li>Elite Arrival Review</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="resource-card">
-      <button class="resource-toggle">
-        <span>World of Hyatt</span>
-        <span>+</span>
-      </button>
-
-      <div class="resource-content">
-        <h3>Elite Recognition</h3>
-
-        <ul>
-          <li>Member</li>
-          <li>Discoverist</li>
-          <li>Explorist</li>
-          <li>Globalist</li>
-        </ul>
-
-        <p>
-          Add upgrade guidelines, breakfast information,
-          parking benefits, and award stay references.
-        </p>
-      </div>
-    </article>
-
-    <article class="resource-card">
-      <button class="resource-toggle">
-        <span>Billing & Routing</span>
-        <span>+</span>
-      </button>
-
-      <div class="resource-content">
-        <ul>
-          <li>OTA Routing</li>
-          <li>Virtual Cards</li>
-          <li>Award Stay Routing</li>
-          <li>Group Billing</li>
-          <li>Sertifi</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="resource-card">
-      <button class="resource-toggle">
-        <span>Night Audit</span>
-        <span>+</span>
-      </button>
-
-      <div class="resource-content">
-        <ul>
-          <li>No-Shows</li>
-          <li>Outstanding Deposits</li>
-          <li>Routing Review</li>
-          <li>Availability Checks</li>
-          <li>AM Handoff</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="resource-card">
-      <button class="resource-toggle">
-        <span>Property Contacts</span>
-        <span>+</span>
-      </button>
-
-      <div class="resource-content">
-        <ul>
-          <li>Front Office Leadership</li>
-          <li>Housekeeping</li>
-          <li>Engineering</li>
-          <li>Sales</li>
-          <li>Security</li>
-          <li>Oracle Support: 1-800-249-0587</li>
-        </ul>
-      </div>
-    </article>
-
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  SHIFT Ops | Front Office Operations Hub
-</footer>
-
-<script src="js/resources.js"></script>
-
+  <footer class="site-footer">
+    SHIFT Ops | Front Office Operations Hub
+  </footer>
 </body>
 </html>
