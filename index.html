@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHIFT Ops</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+  <div class="logo">SHIFT Ops</div>
+  <nav>
+    <a class="active" href="index.html">Dashboard</a>
+    <a href="checklists.html">Checklists</a>
+    <a href="resources.html">Resources</a>
+    <a href="submissions.html">Submissions</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h1>Front Office Operations Hub</h1>
+    <p class="subtitle">Daily shift checklists, handoff documentation, and front office resources for AM, PM, and Night Audit.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>AM Checklist</h3>
+        <p>Pre-arrival planning, payment review, elite recognition, departures, and PM handoff.</p>
+        <div class="stat" id="amDash">0 completed</div>
+      </div>
+      <div class="card blue">
+        <h3>PM Checklist</h3>
+        <p>Arrival management, in-house review, billing/routing, deposits, cancellations, and audit preparation.</p>
+        <div class="stat" id="pmDash">0 completed</div>
+      </div>
+      <div class="card purple">
+        <h3>Night Audit</h3>
+        <p>Audit preparation, End of Day, no-shows, deposit review, availability, traces, and AM handoff.</p>
+        <div class="stat" id="nightDash">0 completed</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="checklists.html?shift=am">Open AM Checklist</a>
+      <a class="btn" href="checklists.html?shift=pm">Open PM Checklist</a>
+      <a class="btn" href="checklists.html?shift=night">Open Night Audit</a>
+    </div>
+
+    <h2>Recent Submissions</h2>
+    <div id="recentSubmissions" class="panel">No submissions yet.</div>
+  </section>
+</main>
+
+<script src="js/shiftData.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

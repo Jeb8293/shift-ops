@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHIFT Checklists</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+  <div class="logo">SHIFT Ops</div>
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a class="active" href="checklists.html">Checklists</a>
+    <a href="resources.html">Resources</a>
+    <a href="submissions.html">Submissions</a>
+  </nav>
+</header>
+
+<main>
+<form name="shift-submissions" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field">
+  <input type="text" name="form-name" value="shift-submissions">
+  <input type="text" name="timestamp">
+  <input type="text" name="shift">
+  <input type="text" name="name">
+  <input type="text" name="date">
+  <input type="text" name="arrivals">
+  <input type="text" name="departures">
+  <input type="text" name="occupancy">
+  <input type="text" name="score">
+  <input type="text" name="completed">
+  <textarea name="completedItems"></textarea>
+  <textarea name="unresolved"></textarea>
+  <textarea name="notes"></textarea>
+</form>
+
+<section>
+  <h1>Shift Checklists</h1>
+  <p class="subtitle">Each checklist opens by section. Edits, checkmarks, and submissions save on this browser.</p>
+
+  <div class="tabs">
+    <button id="amTab" class="active" onclick="loadShift('am')">AM</button>
+    <button id="pmTab" onclick="loadShift('pm')">PM</button>
+    <button id="nightTab" onclick="loadShift('night')">Night Audit</button>
+  </div>
+
+  <div class="notice"><strong>Note:</strong> This version saves edits, checkmarks, and submissions locally in the browser. Netlify will also capture form submissions when the site is published.</div>
+
+  <div class="panel">
+    <div class="form-row">
+      <label>Agent Name<input id="agentName" type="text" placeholder="Name"></label>
+      <label>Date<input id="shiftDate" type="date"></label>
+      <label>Arrivals<input id="arrivals" type="number" placeholder="0"></label>
+      <label>Departures<input id="departures" type="number" placeholder="0"></label>
+    </div>
+    <div class="form-row" style="margin-top:14px">
+      <label>Occupancy %<input id="occupancy" type="text" placeholder="75%"></label>
+      <label>Check-In Score / HySat<input id="score" type="text" placeholder="Score"></label>
+      <label>Shift<input id="shiftLabel" type="text" readonly></label>
+      <label>Completion<input id="completionLabel" type="text" readonly></label>
+    </div>
+  </div>
+
+  <div class="panel" id="checklistPanel">
+    <h2 id="currentShiftTitle">AM Checklist</h2>
+    <div class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
+    <p class="subtitle" id="progressText">0/0 items completed</p>
+
+    <div class="actions">
+      <button class="btn secondary" onclick="toggleEditMode()">Edit Checklist</button>
+      <button class="btn secondary" onclick="expandAll()">Open All Sections</button>
+      <button class="btn secondary" onclick="collapseAll()">Close All Sections</button>
+      <button class="btn danger" onclick="resetDefaultChecklist()">Reset This Checklist</button>
+    </div>
+
+    <div id="taskContainer" style="margin-top:18px"></div>
+  </div>
+
+  <div class="panel">
+    <label>Were there any unresolved issues requiring follow-up?
+      <textarea id="unresolved" placeholder="List unresolved issues or write N/A."></textarea>
+    </label>
+    <label>What other notes do you have to include from your shift?
+      <textarea id="notes" placeholder="Add handoff notes, guest issues, billing concerns, pending follow-up, or write N/A."></textarea>
+    </label>
+    <div class="actions">
+      <button class="btn" onclick="submitChecklist()">Submit Checklist</button>
+      <button class="btn secondary" onclick="clearCurrent()">Clear Current Checklist</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="js/shiftData.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/checklists.js"></script>
+</body>
+</html>
