@@ -8,45 +8,173 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="index.html" class="brand" aria-label="SHIFT Ops Home">
-      <div class="brand-mark" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="brand-text">
-        <span>SHIFT</span>
-        <span>Ops</span>
-      </div>
-    </a>
 
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Dashboard</a>
-      <a href="checklists.html">Checklists</a>
-      <a href="resources.html" class="active">Resources</a>
-      <a href="submissions.html">Submissions</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <div class="brand-mark">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-  <main class="page-shell">
-    <section class="section-block first-section">
-      <div class="section-heading">
-        <p class="eyebrow">Reference Library</p>
-        <h1>Resources</h1>
-        <p class="hero-text">
-          Quick-reference guides for the systems, standards, and operational details the Front Office uses throughout each shift.
+    <div class="brand-text">
+      <span>SHIFT</span>
+      <span>Ops</span>
+    </div>
+  </a>
+
+  <nav class="site-nav">
+    <a href="index.html">Dashboard</a>
+    <a href="checklists.html">Checklists</a>
+    <a href="resources.html" class="active">Resources</a>
+  </nav>
+</header>
+
+<main class="page-shell">
+
+  <section class="section-block first-section">
+    <div class="section-heading">
+      <p class="eyebrow">Reference Library</p>
+
+      <h1>Resources</h1>
+
+      <p class="hero-text">
+        Quick access to Front Office guides, billing references,
+        World of Hyatt information, Opera Cloud procedures,
+        Night Audit resources, and operational standards.
+      </p>
+    </div>
+  </section>
+
+  <section class="resources-grid" id="resourcesContainer">
+
+    <article class="resource-card open">
+      <button class="resource-toggle">
+        <span>Opera Cloud</span>
+        <span>−</span>
+      </button>
+
+      <div class="resource-content">
+        <h3>Common Front Office Tasks</h3>
+
+        <ul>
+          <li>Open Folios</li>
+          <li>Due-Out Management</li>
+          <li>Credit Card Authorizations</li>
+          <li>Cashier Reports</li>
+          <li>Room Moves</li>
+          <li>Night Audit Functions</li>
+        </ul>
+
+        <p>
+          Add your Opera Cloud guides and screenshots here.
         </p>
       </div>
-    </section>
+    </article>
 
-    <section class="resources-grid" id="resourcesContainer"></section>
-  </main>
+    <article class="resource-card">
+      <button class="resource-toggle">
+        <span>Colleague Advantage</span>
+        <span>+</span>
+      </button>
 
-  <footer class="site-footer">
-    SHIFT Ops | Front Office Operations Hub
-  </footer>
+      <div class="resource-content">
+        <h3>Daily Uses</h3>
 
-  <script src="js/resources.js"></script>
+        <ul>
+          <li>Pre-Arrival Dashboard</li>
+          <li>Guest In-House Rate Check</li>
+          <li>B2B Reservations</li>
+          <li>Comp A Worksheet</li>
+          <li>Elite Arrival Review</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="resource-card">
+      <button class="resource-toggle">
+        <span>World of Hyatt</span>
+        <span>+</span>
+      </button>
+
+      <div class="resource-content">
+        <h3>Elite Recognition</h3>
+
+        <ul>
+          <li>Member</li>
+          <li>Discoverist</li>
+          <li>Explorist</li>
+          <li>Globalist</li>
+        </ul>
+
+        <p>
+          Add upgrade guidelines, breakfast information,
+          parking benefits, and award stay references.
+        </p>
+      </div>
+    </article>
+
+    <article class="resource-card">
+      <button class="resource-toggle">
+        <span>Billing & Routing</span>
+        <span>+</span>
+      </button>
+
+      <div class="resource-content">
+        <ul>
+          <li>OTA Routing</li>
+          <li>Virtual Cards</li>
+          <li>Award Stay Routing</li>
+          <li>Group Billing</li>
+          <li>Sertifi</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="resource-card">
+      <button class="resource-toggle">
+        <span>Night Audit</span>
+        <span>+</span>
+      </button>
+
+      <div class="resource-content">
+        <ul>
+          <li>No-Shows</li>
+          <li>Outstanding Deposits</li>
+          <li>Routing Review</li>
+          <li>Availability Checks</li>
+          <li>AM Handoff</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="resource-card">
+      <button class="resource-toggle">
+        <span>Property Contacts</span>
+        <span>+</span>
+      </button>
+
+      <div class="resource-content">
+        <ul>
+          <li>Front Office Leadership</li>
+          <li>Housekeeping</li>
+          <li>Engineering</li>
+          <li>Sales</li>
+          <li>Security</li>
+          <li>Oracle Support: 1-800-249-0587</li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  SHIFT Ops | Front Office Operations Hub
+</footer>
+
+<script src="js/resources.js"></script>
+
 </body>
 </html>
