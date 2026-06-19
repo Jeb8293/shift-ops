@@ -304,3 +304,18 @@ a{
     letter-spacing:-2px;
   }
 }
+
+/* Stack checklist items vertically */
+
+#checklistContainer .section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#checklistContainer .check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
