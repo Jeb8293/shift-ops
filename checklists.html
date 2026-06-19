@@ -1,148 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHIFT Ops | Checklists</title>
-  <link rel="stylesheet" href="css/style.css">
-    <script src="js/auth.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHIFT Ops | Checklists</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/auth.js"></script>
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="index.html" class="brand" aria-label="SHIFT Ops Home">
-      <div class="brand-mark" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="brand-text">
-        <span>SHIFT</span>
-        <span>Ops</span>
-      </div>
-    </a>
+  <header class="site-header">
+    <a href="index.html" class="brand" aria-label="SHIFT Ops Home">
+      <div class="brand-mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Dashboard</a>
-      <a href="checklists.html" class="active">Checklists</a>
-      <a href="resources.html">Resources</a>
-      <a href="submissions.html">Submissions</a>
-    </nav>
-  </header>
+      <div class="brand-text">
+        <span>SHIFT</span>
+        <span>Ops</span>
+      </div>
+    </a>
 
-  <main class="page-shell">
-    <section class="section-block first-section">
-      <div class="section-heading">
-        <p class="eyebrow">Daily Operations</p>
-        <h1>Shift Checklists</h1>
-        <p class="hero-text">
-          Select the appropriate shift checklist, complete each operational item as the shift progresses, and submit a clear handoff before leaving the desk.
-        </p>
-      </div>
-    </section>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Dashboard</a>
+      <a href="checklists.html" class="active">Checklists</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
 
-    <section class="panel">
-      <div class="shift-tabs" role="tablist" aria-label="Shift selection">
-        <button type="button" class="shift-tab active" data-shift="am">AM Shift</button>
-        <button type="button" class="shift-tab" data-shift="pm">PM Shift</button>
-        <button type="button" class="shift-tab" data-shift="night">Night Audit</button>
-      </div>
-    </section>
+  <main class="page-shell">
+    <section class="page-intro">
+      <p class="eyebrow">Daily Shift Execution</p>
+      <h1>Shift Checklists</h1>
+      <p class="hero-text">
+        Complete the checklist for the current shift, document unresolved issues, and submit the report for leadership follow-up.
+      </p>
+    </section>
 
-    <section class="panel">
-      <form id="shiftForm">
-        <div class="form-grid">
-          <label>
-            Agent Name
-            <input type="text" id="agentName" name="agentName" placeholder="Enter name" required>
-          </label>
+    <section class="panel">
+      <div class="form-grid">
+        <label>
+          Agent Name
+          <input id="agentName" type="text" placeholder="Name">
+        </label>
 
-          <label>
-            Date
-            <input type="date" id="shiftDate" name="shiftDate" required>
-          </label>
+        <label>
+          Date
+          <input id="shiftDate" type="date">
+        </label>
 
-          <label>
-            Arrivals
-            <input type="number" id="arrivals" name="arrivals" placeholder="0" min="0">
-          </label>
+        <label>
+          Arrivals
+          <input id="arrivals" type="number" placeholder="0">
+        </label>
 
-          <label>
-            Departures
-            <input type="number" id="departures" name="departures" placeholder="0" min="0">
-          </label>
+        <label>
+          Departures
+          <input id="departures" type="number" placeholder="0">
+        </label>
 
-          <label>
-            Occupancy
-            <input type="text" id="occupancy" name="occupancy" placeholder="Example: 82%">
-          </label>
+        <label>
+          Occupancy %
+          <input id="occupancy" type="text" placeholder="75%">
+        </label>
 
-          <label>
-            Check-In Score / HySat
-            <input type="text" id="score" name="score" placeholder="Score or notes">
-          </label>
+        <label>
+          Check-In Score / HySat
+          <input id="score" type="text" placeholder="Score">
+        </label>
 
-          <label>
-            Current Shift
-            <input type="text" id="shiftLabel" name="shiftLabel" readonly>
-          </label>
+        <label>
+          Current Shift
+          <input id="shiftLabel" type="text" readonly>
+        </label>
 
-          <label>
-            Completion
-            <input type="text" id="completionLabel" name="completionLabel" readonly>
-          </label>
-        </div>
-      </form>
-    </section>
+        <label>
+          Completion
+          <input id="completionLabel" type="text" readonly>
+        </label>
+      </div>
+    </section>
 
-    <section class="panel">
-      <div class="checklist-header">
-        <div>
-          <p class="eyebrow">Checklist</p>
-          <h2 id="checklistTitle">AM Shift Checklist</h2>
-        </div>
+    <section class="checklist-workspace">
+      <div class="shift-tabs">
+        <button class="shift-tab active" type="button" data-shift="am">AM</button>
+        <button class="shift-tab" type="button" data-shift="pm">PM</button>
+        <button class="shift-tab" type="button" data-shift="night">Night Audit</button>
+      </div>
 
-        <div class="progress-summary">
-          <strong id="progressText">0/0 completed</strong>
-        </div>
-      </div>
+      <div class="checklist-header">
+        <div>
+          <p class="eyebrow">Checklist</p>
+          <h2 id="checklistTitle">AM Shift Checklist</h2>
+        </div>
 
-      <div class="progress-track" aria-hidden="true">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
+        <div class="progress-card">
+          <span id="progressText">0/0 completed</span>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
 
-      <div class="button-row">
-        <button type="button" class="btn secondary" id="openAllBtn">Open All Sections</button>
-        <button type="button" class="btn secondary" id="closeAllBtn">Close All Sections</button>
-        <button type="button" class="btn secondary" id="clearChecklistBtn">Clear Checkmarks</button>
-      </div>
+      <div class="checklist-actions">
+        <button id="openAllBtn" class="btn secondary" type="button">Open All Sections</button>
+        <button id="closeAllBtn" class="btn secondary" type="button">Close All Sections</button>
+        <button id="clearChecklistBtn" class="btn secondary" type="button">Clear Checkmarks</button>
+      </div>
 
-      <div id="checklistContainer" class="checklist-container"></div>
-    </section>
+      <div id="checklistContainer"></div>
 
-    <section class="panel">
-      <div class="form-grid single">
-        <label>
-          Were there any unresolved issues requiring follow-up?
-          <textarea id="unresolved" name="unresolved" placeholder="List unresolved items, pending guest concerns, billing issues, room moves, maintenance follow-up, or write N/A."></textarea>
-        </label>
+      <div class="notes-grid">
+        <label>
+          Unresolved Issues / Follow-Up Needed
+          <textarea id="unresolved" placeholder="Document anything the next shift or leadership needs to know."></textarea>
+        </label>
 
-        <label>
-          What other notes should be included from your shift?
-          <textarea id="notes" name="notes" placeholder="Include important handoff notes, guest issues, operational concerns, pending callbacks, staffing concerns, or write N/A."></textarea>
-        </label>
-      </div>
+        <label>
+          Shift Notes
+          <textarea id="notes" placeholder="Add shift notes, guest concerns, billing issues, pass-along items, or important context."></textarea>
+        </label>
+      </div>
 
-      <div class="button-row">
-        <button type="button" class="btn primary" id="submitChecklistBtn">Submit Checklist</button>
-      </div>
-    </section>
-  </main>
+      <div class="submit-row">
+        <button id="submitChecklistBtn" class="btn primary" type="button">Submit Checklist</button>
+      </div>
+    </section>
+  </main>
 
-  <footer class="site-footer">
-    SHIFT Ops | Front Office Operations Hub
-  </footer>
+  <footer class="site-footer">
+    SHIFT Ops | Front Office Operations Hub
+  </footer>
 
-  <script src="js/checklists.js"></script>
+  <script src="js/checklists.js"></script>
 </body>
 </html>
