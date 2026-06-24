@@ -434,3 +434,26 @@ a{
 .checklist-item input[type="checkbox"] {
   margin-top: 4px;
 }
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.checklist-item label {
+  display: block;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-top: 4px;
+}
