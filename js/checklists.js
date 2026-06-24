@@ -8,10 +8,10 @@ const checklistData = {
         title: "Shift Startup",
         items: [
           "Communicate with previous shift for pass-along information.",
-          "Count bank and report discrepancies.",
-          "Open Opera Cloud, CA, Outlook, BOB, and Medallia.",
+          "Count bank ($500) and report discrepancies.",
+          "Open CA, Opera Cloud (if needed), Medallia Concierge, BOB, Outlook (Email), and Guest Issue Log",
           "Review occupancy, arrivals, departures, room inventory, and OOO rooms.",
-          "Review HySat alerts and guest recovery opportunities."
+          "Check HySat for alerts, guest recovery opportunities, and unresolved guest concern"
         ]
       },
       {
