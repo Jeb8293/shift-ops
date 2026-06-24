@@ -160,14 +160,14 @@ function renderChecklist() {
 
       <div class="section-content">
         ${section.items.map((item, itemIndex) => `
-          <label class="check-item">
-            <input
-              type="checkbox"
-              data-section="${sectionIndex}"
-              data-item="${itemIndex}"
-            >
-            <span>${item}</span>
-          </label>
+          <div class="checklist-item">
+            <input
+              type="checkbox"
+              data-section="${sectionIndex}"
+              data-item="${itemIndex}"
+  >
+  <label>${item}</label>
+</div>
         `).join("")}
       </div>
     `;
@@ -213,7 +213,7 @@ function getCompletedItems() {
 
   document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(box => {
     if (box.checked) {
-      const itemText = box.closest(".check-item").querySelector("span").textContent;
+      const itemText = box.closest(".checklist-item").querySelector("label").textContent;
       completedItems.push(itemText);
     }
   });
@@ -226,7 +226,7 @@ function getIncompleteItems() {
 
   document.querySelectorAll('#checklistContainer input[type="checkbox"]').forEach(box => {
     if (!box.checked) {
-      const itemText = box.closest(".check-item").querySelector("span").textContent;
+      const itemText = box.closest(".checklist-item").querySelector("label").textContent;
       incompleteItems.push(itemText);
     }
   });
