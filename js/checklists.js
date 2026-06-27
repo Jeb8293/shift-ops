@@ -5,45 +5,66 @@ const checklistData = {
     label: "AM Shift",
     sections: [
       {
-        title: "Shift Startup",
+        title: "Overnight & Reporting Review & Follow-ups",
         items: [
-          "Communicate with previous shift for pass-along information.",
-          "Count bank ($500) and report discrepancies.",
-          "Open CA, Opera Cloud (if needed), Medallia Concierge, BOB, Outlook (Email), and Guest Issue Log",
-          "Review occupancy, arrivals, departures, room inventory, and OOO rooms.",
-          "Check HySat for alerts, guest recovery opportunities, and unresolved guest concern"
+          "Review overnight shift report & complete necessary follow-ups.",
+          "Review no-show report. Communicate group no-shows in intro email for update.",
+          "Review GEM notes report from NA and take necessary action.",
+          "Review High/Low report and make necessary adjustments.",
+          "Ensure AMEX, Globalist, LT Globalist, Guest of Honor, & Courtesy Card welcome letters are prepared.",
+          "Ensure Employee Discount form with welcome letter is prepared.",
+          "Ensure package posting is correct. Make any necessary changes."
         ]
       },
       {
-        title: "Pre-Arrival Planning",
+        title: "Reservations & Arrivals",
         items: [
-          "Review Pre-Arrival Dashboard.",
-          "Assign rooms for elite members.",
-          "Review traces and alerts.",
-          "Review GEM notes and preferences.",
-          "Review multiple reservations.",
-          "Review survey-prone arrivals."
+          "Ensure PM Accounts are checked in for the day. Remove no posts.",
+          "Check in B2B reservations.",
+          "Review/assign VIPs & communicate at stand-up.",
+          "Ensure Elite Member and Amex upgrades are completed if available (avoid hard blocking).",
+          "Ensure DF for Globalist, Lifetime Globalist, Courtesy Card, and Guest of Honor are removed.",
+          "Review arrival email for Elite tier levels.",
+          "Ensure award reservations (room, tax, parking) are routed to CL (Window 2).",
+          "Review inventory and balance if necessary.",
+          "Review Pre-Arrival Dashboard for Traces and Alerts.",
+          "Review “Reservations Made Yesterday” report for completeness (alerts, routing, deposit rules if needed)."
         ]
       },
       {
-        title: "Billing & Payment",
+        title: "Daily Performance Goals",
         items: [
-          "Review high balance report.",
-          "Authorize cards requiring authorization.",
-          "Verify OTA routing.",
-          "Review award stays.",
-          "Verify virtual cards are correctly routed."
+          "Share daily World of Hyatt enrollment goal based on non-member arrivals.",
+          "Share daily upsell goal with the team.",
+          "Review HySat reviews.",
+          "Respond to guest reviews.",
+          "Recognize and praise team members.",
+          "Coach team members as needed."
         ]
       },
       {
-        title: "Shift Close",
+        title: "Billing",
         items: [
-          "Close cashier.",
-          "Stock desk supplies.",
-          "Complete reports.",
-          "Prepare PM shift handoff."
+          "Review Credit Limit Report and follow up on outstanding balances.",
+          "Run batch deposits in Colleague Advantage and communicate/log declined reservations.",
+          "Complete Sertifi authorizations.",
+          "Review cancelled reservations and process accordingly.",
+          "Review Cashier Journal throughout the shift and ensure all agents complete theirs.",
+          "Review open folios and communicate outstanding balances.",
+          "Coordinate with Valet to ensure parking is attached to arriving guest reservations."
         ]
-      }
+      },
+      {
+        title: "Throughout Shift",
+        items: [
+          "Ensure Medallia responses are communicated in a timely manner.",
+          "Respond to emails.",
+          "Enter manual OTA reservations and respond to OTA review requests.",
+          "Send daily shift report.",
+          "Communicate room moves, early departures, and extended stays to Housekeeping.",
+          "Scan report to Front Office Leadership with completed backup."
+        ]
+      },
     ]
   },
 
