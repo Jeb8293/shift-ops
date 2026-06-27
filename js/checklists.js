@@ -72,17 +72,22 @@ const checklistData = {
     label: "PM Shift",
     sections: [
       {
-        title: "Shift Startup",
+        title: "PreArrival Planning",
         items: [
-          "Review occupancy and arrivals.",
-          "Review guest recovery opportunities.",
-          "Review traces and alerts.",
-          "Count bank.",
-          "Review pass-along."
+          "Review/assign VIPs and communicate in email. Place rooms OOS until DOA if occupancy allows.",
+          "Ensure Elite Member/Amex upgrades are completed if available.",
+          "Review GEM notes, take action, and communicate as needed.",
+          "Ensure DF for Globalist, Lifetime Globalist, Courtesy Card, and Guest of Honor are removed for the next 3–5 business days.",
+          "Ensure award reservations (room, tax, parking) are routed to CL (Window 2).",
+          "Review inventory and balance if necessary.",
+          "Review “Reservations Made Yesterday” report. Add alerts, routing, and deposit rules if needed.",
+          "Review the Pre-Arrival Dashboard filter to plan accordingly (feather free, multiple reservations, etc.). Communicate actions taken.",
+          "Prepare welcome letters for Amex, Lifetime Globalist, Globalist, Courtesy Card, and Guest of Honor for the next day’s arrivals (assign to team members during downtime).",
+          "Prepare employee discount forms and welcome letters for the next day’s arrivals."
         ]
       },
       {
-        title: "Arrival Management",
+        title: "Performance",
         items: [
           "Review remaining arrivals.",
           "Review PM arrivals.",
@@ -92,7 +97,7 @@ const checklistData = {
         ]
       },
       {
-        title: "Billing & In-House Review",
+        title: "Billing",
         items: [
           "Review routing.",
           "Review comp rooms.",
@@ -102,7 +107,7 @@ const checklistData = {
         ]
       },
       {
-        title: "Audit Preparation",
+        title: "Throughout Shift",
         items: [
           "Collect deposits.",
           "Review cancellations.",
