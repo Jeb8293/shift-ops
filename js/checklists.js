@@ -89,31 +89,36 @@ const checklistData = {
       {
         title: "Performance",
         items: [
-          "Review remaining arrivals.",
-          "Review PM arrivals.",
-          "Review late arrivals.",
-          "Review red-eye arrivals.",
-          "Communicate arrival concerns."
+          "Review HySat reviews.",
+          "Respond to HySat Alerts.",
+          "Recognize and praise team members.",
+          "Coach as needed."
         ]
       },
       {
         title: "Billing",
         items: [
-          "Review routing.",
-          "Review comp rooms.",
-          "Verify award stays.",
-          "Review valet charges.",
-          "Review high balances."
+          "Review Credit Limit Report and follow up on outstanding balances.",
+          "Run batch deposits in Colleague Advantage. Communicate and log declined reservations.",
+          "Complete Sertifi authorizations for upcoming arrivals and add notes to reservations.",
+          "Review cancelled reservations and process accordingly.",
+          "Review Cashier Journal throughout the shift and at end of shift. Ensure all agents complete and sign off.",
+          "Review open folios, process as needed, and communicate outstanding balances.",
+          "Review High/Low Report and make necessary adjustments if needed.",
+          "Coordinate with Valet for vehicles parked during your shift and ensure parking is added to reservations."
         ]
       },
       {
         title: "Throughout Shift",
         items: [
-          "Collect deposits.",
-          "Review cancellations.",
-          "Review no-shows.",
-          "Check out zero balance PFs.",
-          "Prepare Night Audit handoff."
+          "Ensure Medallia responses are communicated in a timely manner.",
+          "Respond to emails.",
+          "Enter manual OTA reservations and respond to OTA review requests.",
+          "Communicate room moves in the shift report.",
+          "Communicate World of Hyatt enrollment goal versus actual results in the shift report.",
+          "Review Zero Rate Report. Only MGCM reservations with notes should be listed.",
+          "Send the daily shift report.",
+          "Scan the completed checklist with backup reports to Front Office Leadership."
         ]
       }
     ]
@@ -123,35 +128,91 @@ const checklistData = {
     label: "Night Audit",
     sections: [
       {
+        title: "Shift Startup",
+        items: [
+          "Log in to Opera Cloud, Colleague Advantage, Medallia Concierge, BOB, and Email.",
+          "Count and verify bank ($500). Notify management if the bank is over or short."
+        ]
+      },
+      {
         title: "Pre-Audit",
         items: [
-          "Review occupancy.",
-          "Review arrivals.",
-          "Review no-shows.",
-          "Review deposits.",
-          "Review pass-along."
+          "Confirm all PM accounts have been checked in for the day. Check in any remaining PM arrivals.",
+          "Review arrivals for any late arrivals/redeye arrivals. Pre-check in to secure the room, change payment to cash if applicable, collect payment upon arrival, add notes, and communicate remaining payment issues in the shift report.",
+          "Verify rates for all in-house guests using the Guest In-House Rate Check.",
+          "Ensure all comp rooms have proper authorization notes.",
+          "Ensure third-party reservations are routed to Window 2.",
+          "Ensure group rates are correct by cross-referencing the Resume in BOB.",
+          "Ensure World of Hyatt awards are attached to redemption stays.",
+          "Post valet charges using Fast Posting (Transaction Code 5210)."
         ]
       },
       {
-        title: "Run Audit",
+        title: "Pre-Audit No-Show Process",
         items: [
-          "Verify business date.",
-          "Run End of Day.",
-          "Monitor for errors.",
-          "Correct failed postings.",
-          "Verify completion."
+          "Unassign rooms that have not arrived to avoid room status changing to Pick Up.",
+          "Print the Remaining Arrivals report.",
+          "Pre-check in any guest approved for late arrival to secure the room.",
+          "Send the “No Show & Date” email to Front Desk and Housekeeping.",
+          "If occupancy is above 85%, complete the Comp A worksheet and email the Comp A report to Front Office Leadership.",
+          "Complete the Comp A Dashboard and load applicable rates into Colleague Advantage."
         ]
       },
       {
-        title: "Post Audit",
+        title: "Before Running Audit",
         items: [
-          "Review no-shows.",
-          "Review availability.",
-          "Review deposits.",
-          "Review routing.",
-          "Prepare AM handoff."
+          "Collect advance deposits due for yesterday and today. Cancel reservations with declined deposits and notify the guest.",
+          "Review group blocks not picked up and wash rooms when appropriate.",
+          "Review open folios. Folios should not remain open longer than 24 hours.",
+          "Print the Valet Journal (Transaction Codes 5210 and 5215) for the AM Valet Supervisor.",
+          "Run the Reservation Cancellations report.",
+          "Review all cancelled reservations with deposits and process refunds or cancellation charges as appropriate.",
+          "Ensure all PF accounts have a zero balance and are checked out.",
+          "Review PM accounts due out and process any remaining open folios."
         ]
-      }
+      },
+      {
+        title: "Run Night Audit",
+        items: [
+          "Verify all Food & Beverage outlets have submitted receipts.",
+          "Verify the business date before beginning audit.",
+          "Start Night Audit.",
+          "Monitor audit for errors or failed postings.",
+          "Correct any errors that prevent audit from completing.",
+          "Contact Oracle Support if audit cannot be completed.",
+          "Verify audit completes successfully.",
+          "Ensure audit is completed before 4:00 AM."
+        ]
+      },
+      {
+        title: "Post-Audit No Show Process",
+        items: [
+          "Process payment for all No Show postings.",
+          "If payment declines, adjust the No Show posting so no balance remains.",
+          "Review group No Shows and reinstate placeholder reservations if appropriate. Otherwise communicate with leadership before cancelling."
+        ]
+      },
+      {
+        title: "New Day",
+        items: [
+          "Verify all PF accounts checked out automatically.",
+          "Check in all PM accounts and remove No Post when appropriate.",
+          "Review the Credit Limit Report and follow up on over-limit guests.",
+          "Verify No Shows and cancellations were charged appropriately.",
+          "If a guest checks in after the day rolls, dirty the room for Housekeeping and manually post the first night’s room and tax.",
+          "Resolve all Front Office traces.",
+          "Run all outstanding deposits.",
+          "Review detailed availability and notify the AM MOD of any negative availability.",
+          "Run the Duplicate Reservations report and communicate B2B reservations in the shift report.",
+          "Remove email addresses from OTA reservations.",
+          "Verify deposits and routing are correct for all OTA reservations.",
+          "Review AMEX (Hotel Collection) reservations and prepare welcome letters.",
+          "Review Sertifi authorizations and verify billing setup.",
+          "Review VIP reservations and assign rooms as appropriate.",
+          "Communicate all V8 arrivals during pass-along.",
+          "File all paperwork in the Front Office Daily Checklist Binder.",
+        ]
+      },
     ]
   }
 };
