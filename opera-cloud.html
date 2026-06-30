@@ -6,212 +6,259 @@
   <title>SHIFT Ops | Opera Cloud Guide</title>
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/auth.js"></script>
+
+  <style>
+    details {
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .callout {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-left: 4px solid #333;
+      background: #f7f7f7;
+      font-size: 0.95rem;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="../index.html" class="brand" aria-label="SHIFT Ops Home">
-      <div class="brand-mark" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<header class="site-header">
+  <a href="../index.html" class="brand">
+    <div class="brand-mark"><span></span><span></span><span></span></div>
+    <div class="brand-text"><span>SHIFT</span><span>Ops</span></div>
+  </a>
 
-      <div class="brand-text">
-        <span>SHIFT</span>
-        <span>Ops</span>
-      </div>
-    </a>
+  <nav class="site-nav">
+    <a href="../index.html">Dashboard</a>
+    <a href="../checklists.html">Checklists</a>
+    <a href="../resources.html" class="active">Resources</a>
+  </nav>
+</header>
 
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="../index.html">Dashboard</a>
-      <a href="../checklists.html">Checklists</a>
-      <a href="../resources.html" class="active">Resources</a>
-    </nav>
-  </header>
+<main class="page-shell">
 
-  <main class="page-shell">
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">System Reference Guide</p>
-        <h1>Opera<br>Cloud</h1>
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">System Reference Guide</p>
+    <h1>Opera<br>Cloud</h1>
 
-        <p class="hero-text">
-          Opera Cloud is the property management system used for reservation review, billing, cashiering, open folios, due-outs, no-shows, traces, and Night Audit support. This guide is intended to help Front Office agents understand what to verify, where to slow down, and when a concern should be escalated before it becomes a guest-facing issue.
-        </p>
+    <p class="hero-text">
+      Opera Cloud is the system of record for reservations, billing, cashiering, routing, and audit.
+      This guide supports Front Office teams in identifying risk early, verifying setup correctly,
+      and maintaining clarity across every shift.
+    </p>
 
-        <div class="button-row">
-          <a class="btn secondary" href="../resources.html">Back to Resources</a>
-          <a class="btn primary" href="../checklists.html">Open Checklists</a>
-        </div>
-      </div>
+    <div class="button-row">
+      <a class="btn secondary" href="../resources.html">Back to Resources</a>
+      <a class="btn primary" href="../checklists.html">Open Checklists</a>
+    </div>
+  </div>
+</section>
 
-      <div class="hero-card" aria-hidden="true">
-        <div class="hero-stripe stripe-one"></div>
-        <div class="hero-stripe stripe-two"></div>
-        <div class="hero-block"></div>
-        <p>Reservations<br>Billing<br>Audit</p>
-      </div>
-    </section>
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Purpose</p>
+    <h2>How This Guide Should Be Used</h2>
+  </div>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Purpose</p>
-        <h2>How This Guide Should Be Used</h2>
-      </div>
+  <div class="panel">
+    <p>
+      This guide is designed for live operations. It should be used to support decision-making—not replace leadership direction or SOPs.
+    </p>
 
-      <div class="panel">
-        <p>
-          Opera Cloud should be treated as the system of record for guest reservations, folios, payment status, cashiering activity, routing, room assignments, and end-of-day procedures. Agents should use this guide as a practical reference during live operations, especially when reviewing arrivals, preparing for check-in, checking due-outs, verifying billing, or supporting Night Audit. This guide is not a replacement for manager direction, Hyatt standards, or property-specific SOPs; when something appears unusual, the correct response is to pause, document what was found, and escalate before making a billing or reservation change that could affect the guest experience.
-        </p>
-      </div>
-    </section>
+    <div class="callout">
+      <strong>Standard</strong>
+      If something looks unclear, pause, document, and escalate before making changes that impact the guest.
+    </div>
+  </div>
+</section>
 
-    <section class="dashboard-grid">
-      <article class="card">
-        <h2>Arrivals</h2>
-        <p>
-          Use Opera Cloud to verify reservation details before check-in, including arrival date, departure date, room type, rate code, payment method, routing, alerts, traces, comments, and any special handling notes. A smooth arrival depends on identifying issues before the guest is standing at the desk.
-        </p>
-      </article>
+<section class="dashboard-grid">
+  <article class="card">
+    <h2>Arrivals</h2>
+    <p>Prevent issues before the guest arrives at the desk.</p>
+  </article>
 
-      <article class="card">
-        <h2>Billing</h2>
-        <p>
-          Billing review should include payment method, authorization status, routing instructions, virtual card placement, direct bill instructions, package or award routing, and any folio windows that require separation. Most billing errors begin as missed details before check-in.
-        </p>
-      </article>
+  <article class="card">
+    <h2>Billing</h2>
+    <p>Ensure every charge has a clear owner and correct routing.</p>
+  </article>
 
-      <article class="card">
-        <h2>Audit</h2>
-        <p>
-          Night Audit uses Opera Cloud to complete End of Day, review no-shows, check open balances, process required postings, verify folio status, and prepare the property for the next business day. Audit should never be rushed when unresolved folio or posting issues remain.
-        </p>
-      </article>
-    </section>
+  <article class="card">
+    <h2>Audit</h2>
+    <p>Prepare the property for a clean and accurate next day.</p>
+  </article>
+</section>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Arrivals</p>
-        <h2>Reservation Review Before Check-In</h2>
-      </div>
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Operations</p>
+    <h2>Core Workflows</h2>
+  </div>
 
-      <div class="panel">
-        <p>
-          Before checking in a guest, the agent should review the reservation carefully enough to understand what the guest is expecting and what the hotel is financially responsible for collecting. At minimum, confirm the guest name, dates, room type, rate code, payment method, guarantee method, routing instructions, alerts, traces, comments, and any special requests. If the reservation is prepaid, third-party, direct bill, group-related, award-related, or has any unusual notes, the agent should slow down and verify the setup before proceeding.
-        </p>
+  <!-- ARRIVALS -->
+  <details open>
+    <summary>Arrivals | Reservation Review</summary>
+    <p>
+      Review reservations with intention. This is where most preventable issues originate.
+    </p>
 
-        <p>
-          Reservation review is not just a clerical step. It is the point where the Front Office prevents avoidable guest issues. A guest should not discover at check-in that routing was missed, a virtual card was not prepared, a billing note was ignored, or a special request was visible in the system but never acknowledged. If something does not look right, document what you see and ask a supervisor or manager before making assumptions.
-        </p>
-      </div>
-    </section>
+    <ul>
+      <li>Dates, room type, rate</li>
+      <li>Payment & guarantee method</li>
+      <li>Routing & folio setup</li>
+      <li>Alerts, traces, comments</li>
+    </ul>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Billing</p>
-        <h2>Payment, Authorization, and Routing Review</h2>
-      </div>
+    <div class="callout">
+      <strong>Where to Slow Down</strong>
+      Prepaid, third-party, virtual card, group, and award reservations.
+    </div>
 
-      <div class="panel">
-        <p>
-          Opera Cloud billing review should focus on who is responsible for each charge and whether the folio is set up to support that responsibility. Agents should verify whether room and tax, incidentals, parking, package charges, resort or destination fees, and other charges should remain on the guest folio or route elsewhere. The presence of a note does not automatically mean billing is correct; the folio setup must match the instruction.
-        </p>
+    <div class="callout">
+      <strong>Expectation</strong>
+      The guest should not discover setup errors at check-in.
+    </div>
+  </details>
 
-        <p>
-          For third-party reservations, confirm whether the reservation is guest-pay, prepaid, or virtual-card supported. If a virtual card is involved, verify that the correct folio window and routing instructions are in place before check-in. For award stays, confirm the expected routing and benefit handling according to current property procedure. For direct bill, group, or Sertifi-supported reservations, verify that the required authorization or billing documentation exists before relying on the instruction.
-        </p>
+  <!-- BILLING -->
+  <details>
+    <summary>Billing | Payment & Routing</summary>
+    <p>
+      Billing accuracy comes down to ownership. Every charge must be assigned correctly.
+    </p>
 
-        <p>
-          High-balance and authorization concerns should be handled proactively. When a guest exceeds the approved credit limit or a payment method declines, the issue should be documented and communicated clearly in the shift handoff. The goal is not only to collect payment, but to prevent the next shift from inheriting an unexplained balance or a guest interaction with no context.
-        </p>
-      </div>
-    </section>
+    <ul>
+      <li>Room & tax vs incidentals</li>
+      <li>Routing by folio window</li>
+      <li>Virtual card placement</li>
+      <li>Direct bill verification</li>
+    </ul>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Due-Outs</p>
-        <h2>Open Folios and Departure Management</h2>
-      </div>
+    <div class="callout">
+      <strong>Critical Reminder</strong>
+      Notes do not equal setup. Routing must match the instruction.
+    </div>
 
-      <div class="panel">
-        <p>
-          Due-outs should be reviewed throughout the day and should not be left unresolved without notes. If a room is still due out, the agent should determine whether the guest has extended, requested late checkout, failed to depart, has an unresolved balance, or needs manager follow-up. If a due-out cannot be checked out, the reason must be documented so the next shift understands exactly what remains pending.
-        </p>
+    <div class="callout">
+      <strong>Escalate When</strong>
+      Payment declines, high balances, unclear billing responsibility.
+    </div>
+  </details>
 
-        <p>
-          Open folios require the same discipline. An open folio with no explanation creates unnecessary confusion for the next agent, Night Audit, and leadership. Every unresolved folio should have a clear note explaining the reason it remains open, what action has already been taken, and what the next step should be.
-        </p>
-      </div>
-    </section>
+  <!-- DUE OUTS -->
+  <details>
+    <summary>Due-Outs | Departure Management</summary>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Cashiering</p>
-        <h2>Cashier Reports and Shift Close</h2>
-      </div>
+    <ul>
+      <li>Confirm extensions or late checkouts</li>
+      <li>Resolve outstanding balances</li>
+      <li>Identify follow-up needs</li>
+    </ul>
 
-      <div class="panel">
-        <p>
-          Cashiering should be closed carefully at the end of the shift. Agents should ensure their bank is counted, discrepancies are reported, required receipts or supporting documents are organized, and the cashier report is closed according to property procedure. A cashier report should not be treated as a formality; it is part of the financial record for the shift.
-        </p>
+    <div class="callout">
+      <strong>Standard</strong>
+      No due-out should remain unresolved without documentation.
+    </div>
+  </details>
 
-        <p>
-          Any unusual payment issue, adjustment, refund, correction, disputed charge, or unresolved balance should be included in the shift handoff. If a manager would need context to understand the transaction later, that context should be documented before the agent leaves.
-        </p>
-      </div>
-    </section>
+  <!-- OPEN FOLIOS -->
+  <details>
+    <summary>Open Folios | Visibility</summary>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Night Audit</p>
-        <h2>End of Day Awareness</h2>
-      </div>
+    <p>Every open folio must clearly explain its status.</p>
 
-      <div class="panel">
-        <p>
-          Night Audit should verify that the property is ready for End of Day before audit is started. This includes reviewing arrivals, no-shows, due-outs, open folios, payment concerns, routing concerns, outstanding deposits, cashier status, and unresolved guest issues. Audit should be run with enough time to identify and resolve errors before the morning operation begins.
-        </p>
+    <div class="callout">
+      <strong>Required</strong>
+      Why it’s open, what’s been done, and what’s next.
+    </div>
+  </details>
 
-        <p>
-          If Opera Cloud stops during audit, produces an error, or identifies a posting issue, the auditor should not continue blindly. The issue should be reviewed, corrected when appropriate, and escalated when needed. If system support is required, follow property procedure and document the issue in the shift report so the AM team understands what occurred.
-        </p>
-      </div>
-    </section>
+  <!-- CASHIERING -->
+  <details>
+    <summary>Cashiering | Shift Close</summary>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Escalation</p>
-        <h2>When to Ask for Help</h2>
-      </div>
+    <ul>
+      <li>Balance bank</li>
+      <li>Report discrepancies</li>
+      <li>Organize documentation</li>
+    </ul>
 
-      <div class="panel">
-        <p>
-          Agents should escalate when a billing setup is unclear, a virtual card does not appear to be working, a guest disputes charges, a direct bill or group instruction is incomplete, a due-out cannot be resolved, a folio remains open without explanation, a payment method declines on a high balance, or a Night Audit issue may affect the business date. Asking for help before taking action is always better than creating a larger correction later.
-        </p>
+    <div class="callout">
+      <strong>Expectation</strong>
+      Your shift should be fully understandable after you leave.
+    </div>
+  </details>
 
-        <p>
-          Good escalation includes specific information. Instead of saying, “Opera is not working,” explain what screen you are on, what reservation or folio is affected, what action you attempted, what error or concern appeared, and what needs to happen next. Clear communication helps leadership solve the issue faster and protects the next shift from confusion.
-        </p>
-      </div>
-    </section>
+  <!-- AUDIT -->
+  <details>
+    <summary>Night Audit | Readiness</summary>
 
-    <section class="section-block">
-      <div class="section-heading">
-        <p class="eyebrow">Quick Reminder</p>
-        <h2>Before You Move On</h2>
-      </div>
+    <ul>
+      <li>Check arrivals & no-shows</li>
+      <li>Review due-outs & open folios</li>
+      <li>Confirm cashiering completion</li>
+    </ul>
 
-      <div class="panel">
-        <p>
-          Before leaving an Opera Cloud task, ask yourself whether the next person would understand what you did, what still needs attention, and why the reservation or folio looks the way it does. If the answer is no, add a note, include it in the shift report, or escalate it. Operational consistency depends on leaving a clear trail for the next person.
-        </p>
-      </div>
-    </section>
-  </main>
+    <div class="callout">
+      <strong>Do Not</strong>
+      Continue if errors appear without understanding the cause.
+    </div>
+  </details>
 
-  <footer class="site-footer">
-    SHIFT Ops | Front Office Operations Hub
-  </footer>
+  <!-- ESCALATION -->
+  <details>
+    <summary>Escalation | When to Ask for Help</summary>
+
+    <p>Escalation protects the operation and the guest experience.</p>
+
+    <div class="callout">
+      <strong>Good Escalation Includes</strong>
+      Situation, expectation, outcome, and support needed.
+    </div>
+  </details>
+
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Final Check</p>
+    <h2>Before You Move On</h2>
+  </div>
+
+  <div class="panel">
+    <p>
+      Before closing any task, confirm the next person will understand what happened.
+    </p>
+
+    <div class="callout">
+      <strong>Ask Yourself</strong>
+      Would the next shift understand this without asking questions?
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  SHIFT Ops | Front Office Operations Hub
+</footer>
+
 </body>
 </html>
